@@ -18,14 +18,10 @@ export function mdxjs(options: Options): Extension {
 		{
 			acorn: Parser.extend(acornJsx()),
 			acornOptions: { ecmaVersion: 2020, sourceType: 'module' },
-			addResult: true
+			addResult: true,
 		},
 		options
 	);
 
-	return combineExtensions([
-		mdxExpression(settings),
-		mdxJsx(settings),
-		mdxMd
-	]);
+	return combineExtensions([mdxExpression(settings), mdxJsx(settings), mdxMd]);
 }
